@@ -45,6 +45,11 @@ fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
         console.error(err);  // Log the error to the console
     });
 
+    function getCurrentTime() {
+        const date = new Date();
+        document.getElementById("time").textContent = date.toLocaleTimeString("en-us", { timeStyle: "short" });
+    }
+
 setInterval(getCurrentTime, 1000)
 
 navigator.geolocation.getCurrentPosition(async position => {
