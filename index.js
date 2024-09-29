@@ -30,6 +30,17 @@ fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
         }
         return res.json()  // Parse the response data as JSON
     })
+    .then(data => {
+        document.getElementById("crypto-top").innerHTML = `
+            <img src=${data.image.small} />
+            <span>${data.name}</span>
+        `
+        document.getElementById("crypto").innerHTML += `
+            <p>🎯: $${data.market_data.current_price.usd}</p>
+            <p>👆: $${data.market_data.high_24h.usd}</p>
+            <p>👇: $${data.market_data.low_24h.usd}</p>
+        `
+    })
 
 setInterval(getCurrentTime, 1000)
 
