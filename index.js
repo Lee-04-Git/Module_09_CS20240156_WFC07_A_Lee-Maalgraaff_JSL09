@@ -15,6 +15,21 @@ try {
  */
 // use fetch and then instead of try and catch from line 17 - 42
 
+/*
+try {
+    const res = await fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
+    if (!res.ok) {
+        throw Error("Something went wrong")
+    }
+*/
+
+fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
+    .then(res => {
+        if (!res.ok) {
+            throw Error("Something went wrong")
+        }
+        return res.json()  // Parse the response data as JSON
+    })
 
 setInterval(getCurrentTime, 1000)
 
